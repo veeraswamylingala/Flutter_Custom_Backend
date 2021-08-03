@@ -3,10 +3,13 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { router } from "./routes/routes";
 import cors from "cors";
+import Multer from "multer";
+import nodemon  from "nodemon";
 
 
 dotenv.config();
 const app = express();
+var multer = require('multer');
 app.use(express.json());
 app.use(express.urlencoded({extended:false})); 
 

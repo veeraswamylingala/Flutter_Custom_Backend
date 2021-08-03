@@ -45,6 +45,10 @@ static async createData(req: Request, res: Response) {
           });
     })
   }
+
+
+
+
 //UPDATE OPERATION
 static async updateData(req: Request, res: Response) {
   let { userid, username, useremail } = req.body;
@@ -100,6 +104,7 @@ static async updateData(req: Request, res: Response) {
    static async checkIfExists(req: Request, res: Response) {
     let { username } = req.body;
 
+    console.log(username)
     await User.exists({
       //FILTER
       username: username,
@@ -117,6 +122,29 @@ static async updateData(req: Request, res: Response) {
         });
       });
   }
+
+
+
+
+  //Heroku
+   //READ OPERATION
+   static async getStickers(req:Request,res:Response){
+    await User.find().then((data:any)=>{
+        return res.send({
+            data: data,
+            received: true,
+          });
+    }).catch((error:any)=>{
+        return res.send({
+            data: error,
+            received: false,
+          });
+    })
+  }
+
+
+
+
 
 
 

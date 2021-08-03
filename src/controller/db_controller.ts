@@ -2,10 +2,23 @@ import {Request,Response} from "express";
 import jwt from "jsonwebtoken"; 
 import dotenv from "dotenv";
 import { error } from "console";
+import multer from "multer";
+import nodemon  from "nodemon"
 
 dotenv.config();
-export class DBController{
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+  cb(null, 'public')
+},
+filename: function (req, file, cb) {
+  cb(null, Date.now() + '-' +file.originalname )
+}
+})
+
+var upload = multer({ storage: storage }).single('file')
+
+export class DBController{
 static async showAdminData(req: Request, res: Response) {
     let secretKey = process.env.JWT_KEY as string;
     let token = req.headers.authorization as string;
@@ -80,8 +93,23 @@ let secretKey =  process.env.JWI_KEY as string;
       );
     }
 
+    static async getTagData(req:Request,res:Response){
+     
+      // console.log(tagname);
+      const min = 1;
+        const max = 100;
+        const rand = min + Math.random() * (max - min);
+    
+      return res.send({
+        tagName:"GETTAGDATA",
+        tagValue:  parseInt(rand.toString(),10),
+        received:true
+      });
+    }
 
-static async getTagData(req:Request,res:Response){
+
+
+static async postTagData(req:Request,res:Response){
   let { tagname } = req.body;
   // console.log(tagname);
   const min = 1;
@@ -93,6 +121,22 @@ static async getTagData(req:Request,res:Response){
     tagValue:  parseInt(rand.toString(),10),
     received:true
   });
+}
+
+///Get File from client and store in file location 
+static async uploadFile(req:Request,res:Response){
+
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+        return res.status(500).json(err)
+    } else if (err) {
+        return res.status(500).json(err)
+    }
+return res.status(200).send(req.file)
+
+})
+
+
 }
 
 

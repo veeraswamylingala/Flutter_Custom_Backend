@@ -40,14 +40,14 @@ router.get("/cart",(req,res)=>{
 
 
 ///tag
-router.get("/gettag",(req,res)=>{
-    console.log("tag")
+// router.get("/gettag",(req,res)=>{
+//     console.log("tag")
 
-    res.send({
-        received:false,
-        data:"this is tag page",
-    });
-});
+//     res.send({
+//         received:false,
+//         data:"this is tag page",
+//     });
+// });
 
 
 
@@ -56,14 +56,24 @@ router.get("/verify",DBController.showdata)
 
 router.get("/admin",DBController.showAdminData)
 
+//Tag info
+router.get("/getTag",DBController.getTagData);
+
 //Post---------------------------------------------------------
 //Signup
  router.post("/signup",DBController.signup);
+ 
+
+ //Upload File -----
+ router.post("/uploadFile",DBController.uploadFile);
 
 
 //Tag info
- router.post("/tag",DBController.getTagData);
+ router.post("/tag",DBController.postTagData);
 
+
+
+ 
 //MongoDb_Routes
 router.post("/mongodb/create",MongoDBController.createData)
 router.get("/mongodb/read",MongoDBController.readData)
