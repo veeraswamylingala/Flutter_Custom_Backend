@@ -1,6 +1,7 @@
   
 import { Request, Response } from "express";
 import { User } from "../models/mongodb_model";
+import { Stickers } from "../models/stickers_model";
 
 
 export class MongoDBController {
@@ -45,7 +46,6 @@ static async createData(req: Request, res: Response) {
           });
     })
   }
-
 
 
 
@@ -124,12 +124,35 @@ static async updateData(req: Request, res: Response) {
   }
 
 
+////////Stickers Table-------------------------------
+//CREATE OPERATION
+static async addStickers(req: Request, res: Response) {
+    let { stickerName, stickerUrl } = req.body;
+
+    let stickers = new Stickers({
+      stickerName: stickerName,
+      stickerUrl: stickerUrl,
+    });
+
+    stickers.save()
+      .then((data: any) => {
+        return res.send({
+          data: data,
+          submitted: true,
+        });
+      })
+      .catch((error: any) => {
+        return res.send({
+          data: error,
+          submitted: false,
+        });
+      });
+  }
 
 
-  //Heroku
-   //READ OPERATION
-   static async getStickers(req:Request,res:Response){
-    await User.find().then((data:any)=>{
+  //READ OPERATION
+  static async getStickers(req:Request,res:Response){
+    await Stickers.find().then((data:any)=>{
         return res.send({
             data: data,
             received: true,
@@ -141,6 +164,8 @@ static async updateData(req: Request, res: Response) {
           });
     })
   }
+
+
 
 
 

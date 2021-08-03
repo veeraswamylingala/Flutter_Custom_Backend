@@ -73,7 +73,7 @@ router.get("/getTag",DBController.getTagData);
 
 
 
- 
+
 //MongoDb_Routes
 router.post("/mongodb/create",MongoDBController.createData)
 router.get("/mongodb/read",MongoDBController.readData)
@@ -85,6 +85,9 @@ router.delete("/mongodb/delete/:useruid",MongoDBController.deleteData)
 
 
 
+///Stickers...
+router.post("/mongodb/addsticker",MongoDBController.addStickers)
+router.get("/mongodb/getstickers",MongoDBController.getStickers)
 
 export {router};
 
