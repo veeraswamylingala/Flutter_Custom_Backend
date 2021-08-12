@@ -80,8 +80,6 @@ router.post("/mongodb/exists", MongoDBController.checkIfExists);
 router.delete("/mongodb/delete/:useruid",MongoDBController.deleteData)
 
 
-
-
 ///Stickers...
 router.post("/mongodb/addsticker",MongoDBController.addStickers)
 router.get("/mongodb/getstickers",MongoDBController.getStickers)
