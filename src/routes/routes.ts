@@ -5,12 +5,12 @@ import { MongoDBController } from "../controller/mongodb_controller";
 
 const router = Router();
 
-
 //Get-----------------------------------------------------------------
 //HomePage
 router.get("/",(req,res)=>{
     console.log("opening Cart Api")
     res.send({
+
         received:false,
         data:"this is Home page",
     });
@@ -70,9 +70,6 @@ router.get("/getTag",DBController.getTagData);
 
 //Tag info
  router.post("/tag",DBController.postTagData);
-
-
-
 
 //MongoDb_Routes
 router.post("/mongodb/create",MongoDBController.createData)

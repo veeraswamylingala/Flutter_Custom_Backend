@@ -127,11 +127,11 @@ static async updateData(req: Request, res: Response) {
 ////////Stickers Table-------------------------------
 //CREATE OPERATION
 static async addStickers(req: Request, res: Response) {
-    let { stickerName, stickerUrl } = req.body;
+    let {  stickerUrl,emojis } = req.body;
 
     let stickers = new Stickers({
-      stickerName: stickerName,
       stickerUrl: stickerUrl,
+      emojis:emojis
     });
 
     stickers.save()
@@ -154,7 +154,9 @@ static async addStickers(req: Request, res: Response) {
   static async getStickers(req:Request,res:Response){
     await Stickers.find().then((data:any)=>{
         return res.send({
-            data: data,
+          identifier:"1",
+          name :"Sticker_Manthra",
+          sticker_packs: data,
             received: true,
           });
     }).catch((error:any)=>{

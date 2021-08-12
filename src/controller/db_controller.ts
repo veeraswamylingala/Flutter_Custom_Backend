@@ -111,7 +111,7 @@ let secretKey =  process.env.JWI_KEY as string;
 
 static async postTagData(req:Request,res:Response){
   let { tagname } = req.body;
-  // console.log(tagname);
+     console.log(tagname);
   const min = 1;
     const max = 100;
     const rand = min + Math.random() * (max - min);
