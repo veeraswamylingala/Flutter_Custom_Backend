@@ -155,8 +155,14 @@ static async addStickers(req: Request, res: Response) {
     await Stickers.find().then((data:any)=>{
         return res.send({
           identifier:"1",
-          name :"Sticker_Manthra",
-          sticker_packs: data,
+          name :"Brahmi",
+          publisher: "Sticker Mathra",
+          tray_image_file: "https://firebasestorage.googleapis.com/v0/b/unical-employe.appspot.com/o/ProfilePhotos%2FtrayImage.png?alt=media&token=780d09c8-b9dc-42d0-b097-50763f7fb39e",
+          publisher_email:"",
+          publisher_website: "",
+          privacy_policy_website: "",
+          license_agreement_website: "",
+          stickers: data,
             received: true,
           });
     }).catch((error:any)=>{
@@ -168,6 +174,48 @@ static async addStickers(req: Request, res: Response) {
   }
 
 
+//   "identifier": "1",
+//       "name": "Cuppy",
+//       "publisher": "Jane Doe",
+//       "tray_image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/trayimage.png",
+//       "publisher_email":"",
+//       "publisher_website": "",
+//       "privacy_policy_website": "",
+//       "license_agreement_website": "",
+//       "stickers": [
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/1.webp",
+//           "emojis": ["?","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/2.webp",
+//           "emojis": ["??","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/3.webp",
+//           "emojis": ["??","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/1.webp",
+//           "emojis": ["??","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/1.webp",
+//           "emojis": ["?","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/2.webp",
+//           "emojis": ["??","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/3.webp",
+//           "emojis": ["??","??"]
+//         },
+//         {
+//           "image_file": "https://raw.githubusercontent.com/hariiprasad/my-personal/master/1.webp",
+//           "emojis": ["??","??"]
+//         }
+//       ]
 
 
 
@@ -176,4 +224,6 @@ static async addStickers(req: Request, res: Response) {
 
 
 
-}
+
+
+ }
