@@ -153,7 +153,7 @@ static async addStickers(req: Request, res: Response) {
   //READ OPERATION
   static async getStickers(req:Request,res:Response){
     await Stickers.find().then((data:any)=>{
-        return res.send({
+        return res.send(JSON.stringify({
           identifier:"1",
           name :"Brahmi",
           publisher: "Sticker Mathra",
@@ -163,7 +163,7 @@ static async addStickers(req: Request, res: Response) {
           privacy_policy_website: " ",
           license_agreement_website: " ",
           stickers: data,
-          });
+          }));
     }).catch((error:any)=>{
         return res.send({
             data: error,
