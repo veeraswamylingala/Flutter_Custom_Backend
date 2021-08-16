@@ -158,12 +158,11 @@ static async addStickers(req: Request, res: Response) {
           name :"Brahmi",
           publisher: "Sticker Mathra",
           tray_image_file: "https://firebasestorage.googleapis.com/v0/b/unical-employe.appspot.com/o/ProfilePhotos%2FtrayImage.png?alt=media&token=780d09c8-b9dc-42d0-b097-50763f7fb39e",
-          publisher_email:"",
-          publisher_website: "",
-          privacy_policy_website: "",
-          license_agreement_website: "",
+          publisher_email:" ",
+          publisher_website: " ",
+          privacy_policy_website: " ",
+          license_agreement_website: " ",
           stickers: data,
-            received: true,
           });
     }).catch((error:any)=>{
         return res.send({
