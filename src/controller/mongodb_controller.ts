@@ -127,10 +127,10 @@ static async updateData(req: Request, res: Response) {
 ////////Stickers Table-------------------------------
 //CREATE OPERATION
 static async addStickers(req: Request, res: Response) {
-    let {  stickerUrl,emojis } = req.body;
+    let {  image_file,emojis } = req.body;
 
     let stickers = new Stickers({
-      stickerUrl: stickerUrl,
+      image_file: image_file,
       emojis:emojis
     });
 
@@ -153,7 +153,7 @@ static async addStickers(req: Request, res: Response) {
   //READ OPERATION
   static async getStickers(req:Request,res:Response){
     await Stickers.find().then((data:any)=>{
-        return res.send(JSON.stringify({
+        return res.send({
           identifier:"1",
           name :"Brahmi",
           publisher: "Sticker Mathra",
@@ -165,7 +165,7 @@ static async addStickers(req: Request, res: Response) {
           privacy_policy_website: " ",
           license_agreement_website: " ",
           stickers: data,
-          }));
+          });
     }).catch((error:any)=>{
         return res.send({
             data: error,
