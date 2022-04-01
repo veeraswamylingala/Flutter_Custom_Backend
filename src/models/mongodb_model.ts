@@ -1,6 +1,5 @@
 import mongoose,{Document,Schema} from "mongoose";
 
-
 interface MongoDBInterface extends Document{
     username: string;
     useremail: string;
@@ -11,6 +10,6 @@ const MongoDBSchema: Schema = new Schema({
     useremail: { type: String, required: true },
   });
 
-  const User = mongoose.model<MongoDBInterface>("User",MongoDBSchema);
+const User = mongoose.model<MongoDBInterface>("User",MongoDBSchema);
 
   export { User } ;
