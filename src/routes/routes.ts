@@ -69,7 +69,7 @@ router.get("/getTag",DBController.getTagData);
 
 
 //Tag info
- router.post("/tag",DBController.postTagData);
+ router.post("/tagExpr",DBController.postTagData);
 
 //MongoDb_Routes
 router.post("/mongodb/create",MongoDBController.createData)

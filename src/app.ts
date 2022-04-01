@@ -21,7 +21,6 @@ const port =  process.env.PORT;
 app.use(cors()) // Use this after the variable declaration
 
  mongoose.connect(
-     
     mongodb_url,{
     useNewUrlParser: true,
     useCreateIndex: true,
